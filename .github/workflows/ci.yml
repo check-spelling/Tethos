@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    if: false
     name: 🔨 Build
     runs-on: ubuntu-latest
     steps:
@@ -45,6 +46,7 @@ jobs:
             src/**/Tethos*.snupkg
 
   test:
+    if: false
     name: 🔬 Test
     runs-on: ubuntu-latest
     steps:
@@ -91,7 +93,7 @@ jobs:
     needs: test
     name: 📡 SonarCloud
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: false
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v3
@@ -190,6 +192,7 @@ jobs:
           task: ${{ needs.spellcheck.outputs.followup }}
 
   lint-yml:
+    if: false
     name: 🐞 YML
     runs-on: ubuntu-latest
     steps:
